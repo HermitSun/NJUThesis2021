@@ -872,7 +872,7 @@
     \makebox[4.2em][s]{\njut@cap@cover@major}
     & \njutunderline[250pt]{\njut@value@major}\\
     \makebox[4.2em][s]{\njut@cap@cover@title}
-    & \njutunderline[250pt]{\njut@value@title}
+    & \njutunderline[250pt]{\bf{\songti\njut@value@title}}
   \end{tabular}
   \begin{tabular}{p{4.2em}cp{4.2em}c}
     \makebox[4.2em][s]{\njut@cap@cover@grade}
@@ -902,9 +902,9 @@
     \makebox[4.2em][s]{\njut@cap@cover@major}
     & \njutunderline[250pt]{\njut@value@major}\\
     \makebox[4.2em][s]{\njut@cap@cover@title}
-    & \njutunderline[250pt]{\njut@value@titlea} \\
+    & \njutunderline[250pt]{\bf{\songti\njut@value@titlea}} \\
     \makebox[7em][s]{}
-    & \njutunderline[250pt]{\njut@value@titleb}
+    & \njutunderline[250pt]{\bf{\songti\njut@value@titleb}}
   \end{tabular}
   \begin{tabular}{p{4.2em}cp{4.2em}c}
     \makebox[4.2em][s]{\njut@cap@cover@grade}
