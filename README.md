@@ -1,4 +1,7 @@
-﻿# NJU Thesis 2021
+# NJU Thesis 2021
+
+[![njuthesis](https://img.shields.io/badge/njuthesis-latex-blue)](https://git.nju.edu.cn/nju-lug/nju-latex-templates)
+[![overleaf](https://img.shields.io/badge/overleaf-supported-brightgreen)](https://tex.nju.edu.cn)
 
 南京大学本科生毕业论文LaTex模板 2021
 
@@ -6,7 +9,9 @@
 
 ## 说明
 
-- 本版本从AnyiRao仓库fork而来
+> 如果要在南京大学[Overleaf](tex.nju.edu.cn)中使用，请先使用<font color="red">winfonts</font>，linuxfonts和adobefonts暂时没有安装完全，会出现timeout。
+
+- 本版本从AnyiRao仓库fork修改而来
 - 原作者RAY个人主页<http://anyirao.com>
 - 原作者个人仓库<https://github.com/AnyiRao/NJUThesis2018>
 - README从原文档改写而来
@@ -31,22 +36,27 @@
 
 GitHub提供打包下载，如果GitHub速度过慢，可以去[NJU GitLab同步镜像](https://git.nju.edu.cn/nju-lug/nju-latex-templates/NJUThesis2021)下载。
 
-下表是目前实测可用的环境。限于设备，未在 macOS 上进行测试。
+下表是目前实测可用的环境。
+
+> macOS系统可以正常编译`tex`文件, 但由于字体原因, 实际输出结果会与其他环境有细微不同, 请谨慎使用.
 
 | OS           | Tex          | 测试情况 |
 | ------------ | ------------ | -------- |
-| Windows 10   | TexLive 2019 | ✔        |
 | Windows 10   | TexLive 2020 | ✔        |
+| Windows 10   | TexLive 2021 | ✔        |
+| Windows 10   | MikTex 21.2  | ✔        |
 | Ubuntu 20.04 | TexLive 2020 | ✔        |
+| macOS Big Sur 11.3.1 | TexLive 2020 | ✔ |
+| tex.nju.edu.cn | Overleaf   | ✔      |
 
-Mac系统请使用为MacTex(TexLive+Texshop)-->XeLatex，Windows / Linux系统请使用TexLive(TeXworks)-->XeLatex，其他环境下还未测试。
+- Mac系统请使用为MacTex(TexLive+Texshop)-->XeLatex，Windows系统请使用TexLive(TeXworks/Vscode)-->XeLatex，其他环境下还未测试。
 
 - 点击这里下载TexLive：[TexLive下载地址][TexLive]
 - 点击这里下载MacTex：[MacTex下载地址][MacTex]
 
-### 使用说明
+### 其他注意事项
 
-- 使用时应该采用XeLaTex(sample.tex)-BibTex(sample.bib)-XeLaTex(sample.tex)-XeLaTex(sample.tex)的顺序编译，以生成正确的参考文献目录和编号。
+- 使用时应该采用XeLaTex->BibTex->XeLaTex->XeLaTex的顺序编译，以生成正确的参考文献目录和编号。
 
 - 编译产物为 sample.pdf。
 
@@ -61,16 +71,14 @@ Mac系统请使用为MacTex(TexLive+Texshop)-->XeLatex，Windows / Linux系统�
     ```powershell
     .\compile.bat
     ```
-    
-  - Linux：
+
+  - Linux / macOS：
   
     ```shell
     ./compile.sh
     ```
 
 ### 特别提醒
-
-- PDF中故意留出一些空白页，这是为了让大章的起始页为偶数页。
 
 - 不同的平台需要加载的字体不同，请根据tex文件中的提示使用不同的参数。如果遇到字体无法加载的问题请确认系统装有相应字体。不同平台下请反注释相应的代码，例如在windows下，应为：
 
@@ -84,7 +92,6 @@ Mac系统请使用为MacTex(TexLive+Texshop)-->XeLatex，Windows / Linux系统�
   %% Linux系统请用
   %\documentclass[linuxfonts]{njuthesis}
   ```
-
 
 [TexLive]: https://www.tug.org/texlive/
 [MacTex]:https://tug.org/mactex/
