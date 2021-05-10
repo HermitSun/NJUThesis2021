@@ -54,6 +54,16 @@ GitHub提供打包下载，如果GitHub速度过慢，可以去[NJU GitLab同步
 - 点击这里下载TexLive：[TexLive下载地址][TexLive]
 - 点击这里下载MacTex：[MacTex下载地址][MacTex]
 
+#### Ubuntu字体下载
+
+为了减少可能的隐患，下载TexLive时请尽量下载`texlive-full`。
+
+如果遇到缺失字体WenQuanYi Zen Hei Mono或Times New Roman，请使用以下指令下载：
+
+```bash
+sudo apt install fonts-wqy-zenhei ttf-mscorefonts-installer
+```
+
 ### 其他注意事项
 
 - 使用时应该采用XeLaTex->BibTex->XeLaTex->XeLaTex的顺序编译，以生成正确的参考文献目录和编号。
