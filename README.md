@@ -29,7 +29,7 @@
 
 - 基于本科生院的论文撰写规范修改。
 
-- 限于精力未提供详细使用说明。
+- 限于精力未提供**详细**使用说明。
 
 - 本模板旨在为同学提供毕业论文书写的方便，如有模板问题或者版权问题，请联系作者。
 
@@ -39,7 +39,7 @@
 
 GitHub提供打包下载，如果GitHub速度过慢，可以去[NJU GitLab同步镜像](https://git.nju.edu.cn/nju-lug/nju-latex-templates/NJUThesis2021)下载。
 
-下表是目前实测可用的环境。
+下表是目前实测可用的环境。如果有其他可用环境或不可用的环境，欢迎补充。
 
 > macOS系统可以正常编译`tex`文件, 但由于字体原因, 实际输出结果会与其他环境有细微不同, 请谨慎使用.
 
@@ -59,17 +59,7 @@ GitHub提供打包下载，如果GitHub速度过慢，可以去[NJU GitLab同步
 
 - 点击这里下载MacTex：[MacTex下载地址][MacTex]
 
-#### Ubuntu字体下载
-
-为了减少可能的隐患，下载TexLive时请尽量下载`texlive-full`。
-
-如果遇到缺失字体WenQuanYi Zen Hei Mono或Times New Roman，请使用以下指令下载：
-
-```bash
-sudo apt install fonts-wqy-zenhei ttf-mscorefonts-installer
-```
-
-### 其他注意事项
+### 注意事项
 
 - 使用时应该采用XeLaTex->BibTex->XeLaTex->XeLaTex的顺序编译，以生成正确的参考文献目录和编号。
 
@@ -93,9 +83,7 @@ sudo apt install fonts-wqy-zenhei ttf-mscorefonts-installer
     ./compile.sh
     ```
 
-### 特别提醒
-
-- 不同的平台需要加载的字体不同，请根据tex文件中的提示使用不同的参数。如果遇到字体无法加载的问题请确认系统装有相应字体。不同平台下请反注释相应的代码，例如在windows下，应为：
+- **不同的平台需要加载的字体不同，请根据tex文件中的提示使用不同的参数。**如果遇到字体无法加载的问题请确认系统装有相应字体。不同平台下请反注释相应的代码，例如在windows下，应为：
 
   ```latex
   %% 如需Adobe字体请用
@@ -107,6 +95,60 @@ sudo apt install fonts-wqy-zenhei ttf-mscorefonts-installer
   %% Linux系统请用
   %\documentclass[linuxfonts]{njuthesis}
   ```
+
+### 常见问题
+
+如果有其他问题，欢迎在 issue 里讨论。
+
+#### 安装与配置
+
+1. **如何选择 TexLive / MacTex 版本**
+
+   为了避免不必要的麻烦，尽可能下载 full 版本，如 `texlive-full`。简而言之，下载大的那个。
+
+#### 字体
+
+1. **Ubuntu 下 缺失字体 WenQuanYi Zen Hei Mono 或 Times New Roman**
+
+   安装对应字体即可。使用以下指令下载：
+
+   ```
+   sudo apt install fonts-wqy-zenhei ttf-mscorefonts-installer
+   ```
+
+2. **macOS 下提示 Package fontspec Warning: Font "STSong" does not contain requested Script "CJK"**
+
+   忽略即可，不影响使用。
+
+#### 内容
+
+1. **标题一行放不下怎么办 / 如何使用长标题**
+
+   使用`\titlea`和`\titleb`，分别填入标题的一部分。举例来说，《基于A的B的设计与实现》可以按照如下方式书写：
+
+   ```tex
+   \titlea{基于A的B}    % 第一行
+   \titleb{的设计与实现} % 第二行
+   ```
+
+   输出就会是两行。
+
+2. **使用长标题后摘要部分的题目不见了**
+
+   使用 `\titlea` 和 `\titleb` 的同时需要保留 `\title`。举例来说，《基于A的B的设计与实现》需要按照如下方式书写：
+
+   ```tex
+   \title{基于A的B的设计与实现}
+   \titlea{基于A的B}
+   \titleb{的设计与实现}
+   ```
+
+   这样才能在摘要部分正常显示标题。
+
+3. **使用长标题后封面内容出错**
+
+   请使用最新的模板，在某些老版本模板中会出现此问题。
+
 
 [TexLive]: https://www.tug.org/texlive/
 
