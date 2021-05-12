@@ -482,9 +482,10 @@
 \renewcommand{\thesection}{\thechapter\hspace{0.16em}.\hspace{0.16em}\arabic{section}}
 \renewcommand{\thesubsection}{\thesection\hspace{0.16em}.\hspace{0.16em}\arabic{subsection}}
 \renewcommand{\thesubsubsection}{\thesubsection\hspace{0.16em}.\hspace{0.16em}\arabic{subsubsection}}
+\DeclareCaptionFont{songtibf}{\bf\songti}
 \captionsetup{font=small}
-\captionsetup[table]{position=top}
-\captionsetup[figure]{position=below}
+\captionsetup[table]{position=top,textfont=songtibf}
+\captionsetup[figure]{position=below,textfont=songtibf}
 % 行距
 % \renewcommand*{\baselinestretch}{1.38}
 \let\convertergy@oldtabular\tabular
