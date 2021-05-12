@@ -51,6 +51,7 @@
 \RequirePackage{caption}
 \RequirePackage{float}
 \RequirePackage{subcaption}
+\usepackage[labelformat=simple]{subcaption}
 \RequirePackage{array}
 \RequirePackage{longtable}
 \RequirePackage{booktabs}
