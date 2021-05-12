@@ -50,8 +50,7 @@
 \graphicspath{{./}{./img/}{./fig/}{./image/}{./figure/}{./picture/}{./imgs/}{./figs/}{./images/}{./figures/}{./pictures/}}
 \RequirePackage{caption}
 \RequirePackage{float}
-\RequirePackage{subcaption}
-\usepackage[labelformat=simple]{subcaption}
+\RequirePackage[labelformat=simple]{subcaption}
 \RequirePackage{array}
 \RequirePackage{longtable}
 \RequirePackage{booktabs}

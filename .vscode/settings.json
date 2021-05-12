@@ -50,14 +50,5 @@
                 "xelatex"
             ]
         },
-        {
-            "name": "pdf->bib->pdf->pdf",
-            "tools": [
-                "pdflatex",
-                "bibtex",
-                "pdflatex",
-                "pdflatex"
-            ]
-        }
     ]
 }
