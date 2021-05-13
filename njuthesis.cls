@@ -533,9 +533,18 @@
 \renewcommand{\sectionmark}[1]{\markright{%
  \bfseries\if@mainmatter\thesection\hspace{1em}\fi{#1}%
 }}
+
+% 不另页右页开始
+% \def\cleardoublepage{
+%   \clearpage\if@twoside \ifodd\c@page\fi\fi
+%   }
+
+%%%%%%
+% 另页右页开始
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
   \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
-\setlist{%
+%%%%%
+  \setlist{%
   topsep=0.3em,             % 列表顶端的垂直空白
   partopsep=0pt,            % 列表环境前面紧接着一个空白行时其顶端的额外垂直空白
   itemsep=0ex plus 0.1ex,   % 列表项之间的额外垂直空白
