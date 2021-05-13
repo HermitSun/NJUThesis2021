@@ -17,6 +17,9 @@
 \newif\ifnjut@linuxfonts\njut@linuxfontsfalse
 \newif\ifnjut@macfonts\njut@macfontsfalse
 
+\newif\ifnjut@thesis\njut@thesistrue
+\newif\ifnjut@design\njut@designfalse
+
 \newif\ifnjut@backinfo\njut@backinfofalse
 \newif\ifnjut@title@twolinetitle\njut@title@twolinetitlefalse
 \DeclareOption{adobefonts}{\njut@adobefontstrue
@@ -35,6 +38,12 @@
   \njut@adobefontsfalse
   \njut@winfontsfalse
   \njut@linuxfontsfalse}
+
+\DeclareOption{thesis}{\njut@thesistrue
+  \njut@designfalse}
+\DeclareOption{design}{\njut@designtrue
+  \njut@thesisfalse}
+
 \DeclareOption{backinfo}{\njut@backinfotrue}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax
@@ -163,6 +172,8 @@
     \fi
   \fi
 \fi
+
+
 
 % 宋体加粗需要AutoFakeBold
 \setCJKfamilyfont{song}[AutoFakeBold = {2.17}]{\njut@zhfn@songti}
@@ -961,7 +972,7 @@
   \begin{center}
     \includegraphics[height=3.35cm]{\njut@cap@institute@name}\\
     \vskip 10mm
-    {\zihao{1}\makebox[9em][s]{\bf{\songti\njut@cap@cover@thesis}}}\\
+    {\zihao{1}\makebox[9em][s]{\bf{\songti \ifnjut@thesis \njut@cap@cover@thesis \else \njut@cap@cover@design \fi}}}\\
     \vskip 28mm
     \vskip\stretch{0}
     {\bgroup
