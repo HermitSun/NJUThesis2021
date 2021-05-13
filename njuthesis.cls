@@ -1027,7 +1027,7 @@
   \end{center}
   \begin{spacing}{1.3}
   {\bgroup
-    \bf\kaishu\zihao{4}
+    \bf\kaishu\zihao{-4}
     \def\tabcolsep{0pt}
     \def\arraystretch{0.8}
     \noindent
@@ -1047,7 +1047,7 @@
 \newcommand{\keywords}[1]{%
   \renewcommand*{\njut@value@abstract@keywords}{#1}%
   \par\vspace{2ex}\noindent%
-  {\bf\kaishu\zihao{4}\makebox[4em][s]{\njut@cap@abstract@keywordsname{：}} }~{#1}%
+  {\bf\kaishu\zihao{-4}\makebox[4em][s]{\njut@cap@abstract@keywordsname{：}} }~{#1}%
 }
 % \newcommand*{\englishabstracttitlea}[1]{%
 %   \renewcommand{\njut@value@abstract@en@titlea}{#1}%
