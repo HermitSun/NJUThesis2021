@@ -167,7 +167,7 @@
 % 宋体加粗需要AutoFakeBold
 \setCJKfamilyfont{song}[AutoFakeBold = {2.17}]{\njut@zhfn@songti}
 \setCJKfamilyfont{hei}{\njut@zhfn@heiti}
-\setCJKfamilyfont{kai}{\njut@zhfn@kaishu}
+\setCJKfamilyfont{kai}[AutoFakeBold]{\njut@zhfn@kaishu}
 \setCJKfamilyfont{fangsong}{\njut@zhfn@fangsong}
 \setCJKmainfont[BoldFont={\njut@zhfn@heiti},%
                 ItalicFont={\njut@zhfn@kaishu}]%
@@ -1023,11 +1023,11 @@
   \pagenumbering{Roman}
   \pdfbookmark[0]{\njut@cap@abstract}{abstract}
   \begin{center}
-    \kaishu\zihao{-2}\uuline{\textbf{南京大学本科生毕业论文(设计、作品)中文摘要}}
+    \kaishu\zihao{-2}{\textbf{\uuline{南京大学本科生毕业论文(设计、作品)中文摘要}}}
   \end{center}
   \begin{spacing}{1.3}
   {\bgroup
-    \bf\kaishu\zihao{-4}
+    \kaishu\zihao{-4}
     \def\tabcolsep{0pt}
     \def\arraystretch{0.8}
     \noindent
@@ -1047,7 +1047,7 @@
 \newcommand{\keywords}[1]{%
   \renewcommand*{\njut@value@abstract@keywords}{#1}%
   \par\vspace{2ex}\noindent%
-  {\bf\kaishu\zihao{-4}\makebox[4em][s]{\njut@cap@abstract@keywordsname{：}} }~{#1}%
+  {\kaishu\zihao{-4}\makebox[4em][s]{\njut@cap@abstract@keywordsname{：}} }~{#1}%
 }
 % \newcommand*{\englishabstracttitlea}[1]{%
 %   \renewcommand{\njut@value@abstract@en@titlea}{#1}%
@@ -1060,7 +1060,7 @@
   \thispagestyle{plain}
   \pdfbookmark[0]{\njut@cap@abstract@en}{englishabstract}
   \begin{center}
-      \kaishu\zihao{-2}\uuline{\textbf{南京大学本科生毕业论文(设计、作品)英文摘要}}
+      \kaishu\zihao{-2}{\textbf{\uuline{南京大学本科生毕业论文(设计、作品)英文摘要}}}
   \end{center}
   {
     \bgroup
