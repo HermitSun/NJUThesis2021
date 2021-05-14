@@ -17,6 +17,9 @@
 \newif\ifnjut@linuxfonts\njut@linuxfontsfalse
 \newif\ifnjut@macfonts\njut@macfontsfalse
 
+\newif\ifnjut@thesis\njut@thesistrue
+\newif\ifnjut@design\njut@designfalse
+
 \newif\ifnjut@backinfo\njut@backinfofalse
 \newif\ifnjut@title@twolinetitle\njut@title@twolinetitlefalse
 \DeclareOption{adobefonts}{\njut@adobefontstrue
@@ -35,6 +38,12 @@
   \njut@adobefontsfalse
   \njut@winfontsfalse
   \njut@linuxfontsfalse}
+
+\DeclareOption{thesis}{\njut@thesistrue
+  \njut@designfalse}
+\DeclareOption{design}{\njut@designtrue
+  \njut@thesisfalse}
+
 \DeclareOption{backinfo}{\njut@backinfotrue}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax
@@ -50,7 +59,7 @@
 \graphicspath{{./}{./img/}{./fig/}{./image/}{./figure/}{./picture/}{./imgs/}{./figs/}{./images/}{./figures/}{./pictures/}}
 \RequirePackage{caption}
 \RequirePackage{float}
-\RequirePackage{subcaption}
+\RequirePackage[labelformat=simple]{subcaption}
 \RequirePackage{array}
 \RequirePackage{longtable}
 \RequirePackage{booktabs}
@@ -164,10 +173,12 @@
   \fi
 \fi
 
+
+
 % 宋体加粗需要AutoFakeBold
 \setCJKfamilyfont{song}[AutoFakeBold = {2.17}]{\njut@zhfn@songti}
 \setCJKfamilyfont{hei}{\njut@zhfn@heiti}
-\setCJKfamilyfont{kai}{\njut@zhfn@kaishu}
+\setCJKfamilyfont{kai}[AutoFakeBold = {2.17}]{\njut@zhfn@kaishu}
 \setCJKfamilyfont{fangsong}{\njut@zhfn@fangsong}
 \setCJKmainfont[BoldFont={\njut@zhfn@heiti},%
                 ItalicFont={\njut@zhfn@kaishu}]%
@@ -482,9 +493,10 @@
 \renewcommand{\thesection}{\thechapter\hspace{0.16em}.\hspace{0.16em}\arabic{section}}
 \renewcommand{\thesubsection}{\thesection\hspace{0.16em}.\hspace{0.16em}\arabic{subsection}}
 \renewcommand{\thesubsubsection}{\thesubsection\hspace{0.16em}.\hspace{0.16em}\arabic{subsubsection}}
+\DeclareCaptionFont{songtibf}{\bf\songti}
 \captionsetup{font=small}
-\captionsetup[table]{position=top}
-\captionsetup[figure]{position=below}
+\captionsetup[table]{position=top,textfont=songtibf}
+\captionsetup[figure]{position=below,textfont=songtibf}
 % 行距
 % \renewcommand*{\baselinestretch}{1.38}
 \let\convertergy@oldtabular\tabular
@@ -532,9 +544,18 @@
 \renewcommand{\sectionmark}[1]{\markright{%
  \bfseries\if@mainmatter\thesection\hspace{1em}\fi{#1}%
 }}
+
+% 不另页右页开始
+% \def\cleardoublepage{
+%   \clearpage\if@twoside \ifodd\c@page\fi\fi
+%   }
+
+%%%%%%
+% 另页右页开始
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
   \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
-\setlist{%
+%%%%%
+  \setlist{%
   topsep=0.3em,             % 列表顶端的垂直空白
   partopsep=0pt,            % 列表环境前面紧接着一个空白行时其顶端的额外垂直空白
   itemsep=0ex plus 0.1ex,   % 列表项之间的额外垂直空白
@@ -951,7 +972,7 @@
   \begin{center}
     \includegraphics[height=3.35cm]{\njut@cap@institute@name}\\
     \vskip 10mm
-    {\zihao{1}\makebox[9em][s]{\bf{\songti\njut@cap@cover@thesis}}}\\
+    {\zihao{1}\makebox[9em][s]{\bf{\songti \ifnjut@thesis \njut@cap@cover@thesis \else \njut@cap@cover@design \fi}}}\\
     \vskip 28mm
     \vskip\stretch{0}
     {\bgroup
@@ -1013,11 +1034,11 @@
   \pagenumbering{Roman}
   \pdfbookmark[0]{\njut@cap@abstract}{abstract}
   \begin{center}
-    \kaishu\zihao{-2}\uuline{\textbf{南京大学本科生毕业论文(设计、作品)中文摘要}}
+    \kaishu\zihao{-2}{\textbf{\uuline{南京大学本科生毕业论文(设计、作品)中文摘要}}}
   \end{center}
   \begin{spacing}{1.3}
   {\bgroup
-    \bf\kaishu\zihao{4}
+    \kaishu\zihao{-4}
     \def\tabcolsep{0pt}
     \def\arraystretch{0.8}
     \noindent
@@ -1037,7 +1058,7 @@
 \newcommand{\keywords}[1]{%
   \renewcommand*{\njut@value@abstract@keywords}{#1}%
   \par\vspace{2ex}\noindent%
-  {\bf\kaishu\zihao{4}\makebox[4em][s]{\njut@cap@abstract@keywordsname{：}} }~{#1}%
+  {\kaishu\zihao{-4}\makebox[4em][s]{\njut@cap@abstract@keywordsname{：}} }~{#1}%
 }
 % \newcommand*{\englishabstracttitlea}[1]{%
 %   \renewcommand{\njut@value@abstract@en@titlea}{#1}%
@@ -1050,7 +1071,7 @@
   \thispagestyle{plain}
   \pdfbookmark[0]{\njut@cap@abstract@en}{englishabstract}
   \begin{center}
-      \kaishu\zihao{-2}\uuline{\textbf{南京大学本科生毕业论文(设计、作品)英文摘要}}
+      \kaishu\zihao{-2}{\textbf{\uuline{南京大学本科生毕业论文(设计、作品)英文摘要}}}
   \end{center}
   {
     \bgroup
