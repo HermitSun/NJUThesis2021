@@ -1,4 +1,4 @@
-# NJU Thesis 2021
+﻿# NJU Thesis 2021
 
 [![njuthesis](https://img.shields.io/badge/njuthesis-latex-blue)](https://git.nju.edu.cn/nju-lug/nju-latex-templates)
 [![overleaf](https://img.shields.io/badge/overleaf-supported-brightgreen)](https://tex.nju.edu.cn)
@@ -83,7 +83,7 @@ GitHub提供打包下载，如果GitHub速度过慢，可以去[NJU GitLab同步
     ./compile.sh
     ```
 
-- **不同的平台需要加载的字体不同，请根据tex文件中的提示使用不同的参数。**如果遇到字体无法加载的问题请确认系统装有相应字体。不同平台下请反注释相应的代码，例如在windows下，应为：
+- **不同的平台需要加载的字体不同，请根据tex文件中的提示使用不同的参数**。如果遇到字体无法加载的问题请确认系统装有相应字体。不同平台下请反注释相应的代码，例如在windows下，应为：
 
   ```latex
   %% 如需Adobe字体请用
@@ -149,6 +149,22 @@ GitHub提供打包下载，如果GitHub速度过慢，可以去[NJU GitLab同步
 
    请使用最新的模板，在某些老版本模板中会出现此问题。
 
+4. **如何取消另页右页开始（即去除空白页）**
+
+   在cls文件约537行中有如下定义
+   ```tex
+   % 不另页右页开始
+   % \def\cleardoublepage{
+   %   \clearpage\if@twoside \ifodd\c@page\fi\fi
+   %   }
+   
+   %%%%%%
+   % 另页右页开始
+   \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+   \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+   %%%%%
+   ```
+   反注释对应定义即可
 
 [TexLive]: https://www.tug.org/texlive/
 
