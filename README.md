@@ -151,20 +151,26 @@ GitHub提供打包下载，如果GitHub速度过慢，可以去[NJU GitLab同步
 
 4. **如何取消另页右页开始（即去除空白页）**
 
-   在cls文件约537行中有如下定义
+   在cls文件约537行中有如下定义：
    ```tex
    % 不另页右页开始
    % \def\cleardoublepage{
    %   \clearpage\if@twoside \ifodd\c@page\fi\fi
    %   }
-
+   
    %%%%%%
    % 另页右页开始
    \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
    \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
    %%%%%
    ```
-   反注释对应定义即可
+   反注释对应定义即可。
+   
+5. **无法生成参考文献 / 无法正常显示参考文献**
+
+   一般是因为没有使用 bibtex进行编译，请确认按照 xelatex - bibtex - xelatex -xelatex 的顺序对 tex 文件进行编译。
+   
+   可以使用 vscode 插件、IDE（如 tex studio）或项目根目录的编译脚本，以确保能正确生成参考文献。
 
 [TexLive]: https://www.tug.org/texlive/
 
