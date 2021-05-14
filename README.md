@@ -1,4 +1,6 @@
-﻿# NJU Thesis 2021
+> **此仓库暂时封存，将在主仓库进行开发。**
+
+# NJU Thesis 2021
 
 [![njuthesis](https://img.shields.io/badge/njuthesis-latex-blue)](https://git.nju.edu.cn/nju-lug/nju-latex-templates)
 [![overleaf](https://img.shields.io/badge/overleaf-supported-brightgreen)](https://tex.nju.edu.cn)
