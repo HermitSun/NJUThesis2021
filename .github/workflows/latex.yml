@@ -19,3 +19,8 @@ jobs:
           root_file: sample.tex
           latexmk_use_xelatex: true
           args: '-bibtex'
+      - uses: actions/upload-artifact@v2
+        with:
+          name: PDF
+          path: sample.pdf
+
